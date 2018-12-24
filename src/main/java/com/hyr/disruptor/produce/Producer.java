@@ -49,6 +49,6 @@ public class Producer implements QuartzJob {
             index++;
         }
         long end = System.currentTimeMillis();
-        log.info("producer:{} produce {} datas cost time:{}", producerName, index, start - end);
+        log.info("producer:{} produce {} datas. start:{} end:{} cost time:{}", producerName, index, start, end, start - end);
     }
 }

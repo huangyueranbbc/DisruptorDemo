@@ -44,7 +44,7 @@ public class MyEventHandler implements WorkHandler<PvDataEvent> {
         if (sequence == 0) {
             Main.consumerStart = System.currentTimeMillis();
         }
-        if (sequence == 10000000) {
+        if (sequence == 9999999) {
             Main.consumerEnd = System.currentTimeMillis();
             log.info("consumer 10000000 datas. startTime:{} ,endTime:{} ,cost time:{} ", Main.consumerStart, Main.consumerEnd, Main.consumerEnd - Main.consumerStart);
         }
