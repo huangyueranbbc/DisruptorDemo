@@ -13,7 +13,7 @@ public final class PbTransfer {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required string pvid = 1;</code>
+     * <code>optional string pvid = 1;</code>
      *
      * <pre>
      *数据标识
@@ -21,7 +21,7 @@ public final class PbTransfer {
      */
     boolean hasPvid();
     /**
-     * <code>required string pvid = 1;</code>
+     * <code>optional string pvid = 1;</code>
      *
      * <pre>
      *数据标识
@@ -29,7 +29,7 @@ public final class PbTransfer {
      */
     java.lang.String getPvid();
     /**
-     * <code>required string pvid = 1;</code>
+     * <code>optional string pvid = 1;</code>
      *
      * <pre>
      *数据标识
@@ -39,7 +39,7 @@ public final class PbTransfer {
         getPvidBytes();
 
     /**
-     * <code>required uint64 index = 2;</code>
+     * <code>optional uint64 index = 2;</code>
      *
      * <pre>
      *数据包索引
@@ -47,7 +47,7 @@ public final class PbTransfer {
      */
     boolean hasIndex();
     /**
-     * <code>required uint64 index = 2;</code>
+     * <code>optional uint64 index = 2;</code>
      *
      * <pre>
      *数据包索引
@@ -56,7 +56,7 @@ public final class PbTransfer {
     long getIndex();
 
     /**
-     * <code>required string producer = 3;</code>
+     * <code>optional string producer = 3;</code>
      *
      * <pre>
      *生产者
@@ -64,7 +64,7 @@ public final class PbTransfer {
      */
     boolean hasProducer();
     /**
-     * <code>required string producer = 3;</code>
+     * <code>optional string producer = 3;</code>
      *
      * <pre>
      *生产者
@@ -72,7 +72,7 @@ public final class PbTransfer {
      */
     java.lang.String getProducer();
     /**
-     * <code>required string producer = 3;</code>
+     * <code>optional string producer = 3;</code>
      *
      * <pre>
      *生产者
@@ -82,7 +82,7 @@ public final class PbTransfer {
         getProducerBytes();
 
     /**
-     * <code>required uint64 monitorTime = 4;</code>
+     * <code>optional uint64 monitorTime = 4;</code>
      *
      * <pre>
      * 数据时间戳
@@ -90,7 +90,7 @@ public final class PbTransfer {
      */
     boolean hasMonitorTime();
     /**
-     * <code>required uint64 monitorTime = 4;</code>
+     * <code>optional uint64 monitorTime = 4;</code>
      *
      * <pre>
      * 数据时间戳
@@ -219,7 +219,7 @@ public final class PbTransfer {
     public static final int PVID_FIELD_NUMBER = 1;
     private java.lang.Object pvid_;
     /**
-     * <code>required string pvid = 1;</code>
+     * <code>optional string pvid = 1;</code>
      *
      * <pre>
      *数据标识
@@ -229,7 +229,7 @@ public final class PbTransfer {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required string pvid = 1;</code>
+     * <code>optional string pvid = 1;</code>
      *
      * <pre>
      *数据标识
@@ -250,7 +250,7 @@ public final class PbTransfer {
       }
     }
     /**
-     * <code>required string pvid = 1;</code>
+     * <code>optional string pvid = 1;</code>
      *
      * <pre>
      *数据标识
@@ -273,7 +273,7 @@ public final class PbTransfer {
     public static final int INDEX_FIELD_NUMBER = 2;
     private long index_;
     /**
-     * <code>required uint64 index = 2;</code>
+     * <code>optional uint64 index = 2;</code>
      *
      * <pre>
      *数据包索引
@@ -283,7 +283,7 @@ public final class PbTransfer {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required uint64 index = 2;</code>
+     * <code>optional uint64 index = 2;</code>
      *
      * <pre>
      *数据包索引
@@ -296,7 +296,7 @@ public final class PbTransfer {
     public static final int PRODUCER_FIELD_NUMBER = 3;
     private java.lang.Object producer_;
     /**
-     * <code>required string producer = 3;</code>
+     * <code>optional string producer = 3;</code>
      *
      * <pre>
      *生产者
@@ -306,7 +306,7 @@ public final class PbTransfer {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>required string producer = 3;</code>
+     * <code>optional string producer = 3;</code>
      *
      * <pre>
      *生产者
@@ -327,7 +327,7 @@ public final class PbTransfer {
       }
     }
     /**
-     * <code>required string producer = 3;</code>
+     * <code>optional string producer = 3;</code>
      *
      * <pre>
      *生产者
@@ -350,7 +350,7 @@ public final class PbTransfer {
     public static final int MONITORTIME_FIELD_NUMBER = 4;
     private long monitorTime_;
     /**
-     * <code>required uint64 monitorTime = 4;</code>
+     * <code>optional uint64 monitorTime = 4;</code>
      *
      * <pre>
      * 数据时间戳
@@ -360,7 +360,7 @@ public final class PbTransfer {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>required uint64 monitorTime = 4;</code>
+     * <code>optional uint64 monitorTime = 4;</code>
      *
      * <pre>
      * 数据时间戳
@@ -382,22 +382,6 @@ public final class PbTransfer {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasPvid()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasIndex()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasProducer()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasMonitorTime()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -652,22 +636,6 @@ public final class PbTransfer {
       }
 
       public final boolean isInitialized() {
-        if (!hasPvid()) {
-          
-          return false;
-        }
-        if (!hasIndex()) {
-          
-          return false;
-        }
-        if (!hasProducer()) {
-          
-          return false;
-        }
-        if (!hasMonitorTime()) {
-          
-          return false;
-        }
         return true;
       }
 
@@ -692,7 +660,7 @@ public final class PbTransfer {
 
       private java.lang.Object pvid_ = "";
       /**
-       * <code>required string pvid = 1;</code>
+       * <code>optional string pvid = 1;</code>
        *
        * <pre>
        *数据标识
@@ -702,7 +670,7 @@ public final class PbTransfer {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required string pvid = 1;</code>
+       * <code>optional string pvid = 1;</code>
        *
        * <pre>
        *数据标识
@@ -723,7 +691,7 @@ public final class PbTransfer {
         }
       }
       /**
-       * <code>required string pvid = 1;</code>
+       * <code>optional string pvid = 1;</code>
        *
        * <pre>
        *数据标识
@@ -743,7 +711,7 @@ public final class PbTransfer {
         }
       }
       /**
-       * <code>required string pvid = 1;</code>
+       * <code>optional string pvid = 1;</code>
        *
        * <pre>
        *数据标识
@@ -760,7 +728,7 @@ public final class PbTransfer {
         return this;
       }
       /**
-       * <code>required string pvid = 1;</code>
+       * <code>optional string pvid = 1;</code>
        *
        * <pre>
        *数据标识
@@ -773,7 +741,7 @@ public final class PbTransfer {
         return this;
       }
       /**
-       * <code>required string pvid = 1;</code>
+       * <code>optional string pvid = 1;</code>
        *
        * <pre>
        *数据标识
@@ -792,7 +760,7 @@ public final class PbTransfer {
 
       private long index_ ;
       /**
-       * <code>required uint64 index = 2;</code>
+       * <code>optional uint64 index = 2;</code>
        *
        * <pre>
        *数据包索引
@@ -802,7 +770,7 @@ public final class PbTransfer {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required uint64 index = 2;</code>
+       * <code>optional uint64 index = 2;</code>
        *
        * <pre>
        *数据包索引
@@ -812,7 +780,7 @@ public final class PbTransfer {
         return index_;
       }
       /**
-       * <code>required uint64 index = 2;</code>
+       * <code>optional uint64 index = 2;</code>
        *
        * <pre>
        *数据包索引
@@ -825,7 +793,7 @@ public final class PbTransfer {
         return this;
       }
       /**
-       * <code>required uint64 index = 2;</code>
+       * <code>optional uint64 index = 2;</code>
        *
        * <pre>
        *数据包索引
@@ -840,7 +808,7 @@ public final class PbTransfer {
 
       private java.lang.Object producer_ = "";
       /**
-       * <code>required string producer = 3;</code>
+       * <code>optional string producer = 3;</code>
        *
        * <pre>
        *生产者
@@ -850,7 +818,7 @@ public final class PbTransfer {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>required string producer = 3;</code>
+       * <code>optional string producer = 3;</code>
        *
        * <pre>
        *生产者
@@ -871,7 +839,7 @@ public final class PbTransfer {
         }
       }
       /**
-       * <code>required string producer = 3;</code>
+       * <code>optional string producer = 3;</code>
        *
        * <pre>
        *生产者
@@ -891,7 +859,7 @@ public final class PbTransfer {
         }
       }
       /**
-       * <code>required string producer = 3;</code>
+       * <code>optional string producer = 3;</code>
        *
        * <pre>
        *生产者
@@ -908,7 +876,7 @@ public final class PbTransfer {
         return this;
       }
       /**
-       * <code>required string producer = 3;</code>
+       * <code>optional string producer = 3;</code>
        *
        * <pre>
        *生产者
@@ -921,7 +889,7 @@ public final class PbTransfer {
         return this;
       }
       /**
-       * <code>required string producer = 3;</code>
+       * <code>optional string producer = 3;</code>
        *
        * <pre>
        *生产者
@@ -940,7 +908,7 @@ public final class PbTransfer {
 
       private long monitorTime_ ;
       /**
-       * <code>required uint64 monitorTime = 4;</code>
+       * <code>optional uint64 monitorTime = 4;</code>
        *
        * <pre>
        * 数据时间戳
@@ -950,7 +918,7 @@ public final class PbTransfer {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>required uint64 monitorTime = 4;</code>
+       * <code>optional uint64 monitorTime = 4;</code>
        *
        * <pre>
        * 数据时间戳
@@ -960,7 +928,7 @@ public final class PbTransfer {
         return monitorTime_;
       }
       /**
-       * <code>required uint64 monitorTime = 4;</code>
+       * <code>optional uint64 monitorTime = 4;</code>
        *
        * <pre>
        * 数据时间戳
@@ -973,7 +941,7 @@ public final class PbTransfer {
         return this;
       }
       /**
-       * <code>required uint64 monitorTime = 4;</code>
+       * <code>optional uint64 monitorTime = 4;</code>
        *
        * <pre>
        * 数据时间戳
@@ -1012,8 +980,8 @@ public final class PbTransfer {
   static {
     java.lang.String[] descriptorData = {
       "\n\021pb_transfer.proto\022\006PvData\"L\n\006PvData\022\014\n" +
-      "\004pvid\030\001 \002(\t\022\r\n\005index\030\002 \002(\004\022\020\n\010producer\030\003" +
-      " \002(\t\022\023\n\013monitorTime\030\004 \002(\004B\026\n\024com.hyr.dis" +
+      "\004pvid\030\001 \001(\t\022\r\n\005index\030\002 \001(\004\022\020\n\010producer\030\003" +
+      " \001(\t\022\023\n\013monitorTime\030\004 \001(\004B\026\n\024com.hyr.dis" +
       "ruptor.pb"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =

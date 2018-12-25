@@ -1,12 +1,11 @@
 package com.hyr.disruptor.consumer;
 
-import com.hyr.disruptor.Constant;
-import com.hyr.disruptor.Queue;
+import com.hyr.Constant;
+import com.hyr.Queue;
 import com.hyr.disruptor.event.MyEventHandler;
 import com.hyr.disruptor.thread.QuartzJob;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sun.awt.geom.AreaOp;
 
 import java.util.concurrent.CountDownLatch;
 

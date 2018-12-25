@@ -1,11 +1,16 @@
-package com.hyr.disruptor;
+package com.hyr;
 
 import com.hyr.disruptor.event.MyEventFactory;
 import com.hyr.disruptor.event.PvDataEvent;
+import com.hyr.disruptor.pb.PbTransfer;
 import com.hyr.disruptor.thread.MyThreadFactory;
-import com.lmax.disruptor.YieldingWaitStrategy;
+import com.lmax.disruptor.*;
+import disruptor_compare_blockqueueu.vo.PvData;
 import com.lmax.disruptor.dsl.Disruptor;
 import com.lmax.disruptor.dsl.ProducerType;
+
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.TimeUnit;
 
 /*******************************************************************************
  * @date 2018-12-21 上午 11:26
@@ -24,6 +29,19 @@ public class Queue {
      * YieldingWaitStrategy 性能是最好的，适合用于低延迟的系统。在要求极高性能且事件处理线数小于 CPU 逻辑核心数的场景中，推荐使用此策略；例如，CPU开启超线程的特性。
      */
     public static Disruptor<PvDataEvent> disruptor = new Disruptor<PvDataEvent>(new MyEventFactory(), getRingBufferSize(1024), new MyThreadFactory("MyThreadFactory"), ProducerType.MULTI, new YieldingWaitStrategy());
+
+    public static LinkedBlockingQueue<PbTransfer.PvData> blockqueue = new LinkedBlockingQueue<PbTransfer.PvData>(1024);
+
+    // queue
+    public static final RingBuffer<PvData> ringBuffer = RingBuffer.create(ProducerType.SINGLE,new EventFactory<PvData>() {
+        @Override
+        public PvData newInstance() {
+            return new PvData();
+        }
+    }, getRingBufferSize(1024), new YieldingWaitStrategy());
+
+    //创建消费者指针
+    public static final SequenceBarrier barrier = ringBuffer.newBarrier();
 
     //获取RingBuffer的缓冲区大小（2的幂次！加速计算）
     private static int getRingBufferSize(int num) {

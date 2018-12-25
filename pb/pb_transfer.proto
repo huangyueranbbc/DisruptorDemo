@@ -3,10 +3,10 @@ option java_package = "com.hyr.disruptor.pb";
 
 // 数据包
 message PvData {
-    required string pvid = 1; //数据标识
-    required uint64 index = 2; //数据包索引
-    required string producer = 3;  //生产者
-    required uint64 monitorTime = 4; // 数据时间戳
+    optional string pvid = 1; //数据标识
+    optional uint64 index = 2; //数据包索引
+    optional string producer = 3;  //生产者
+    optional uint64 monitorTime = 4; // 数据时间戳
 }
 
 

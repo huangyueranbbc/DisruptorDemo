@@ -1,7 +1,7 @@
 package com.hyr.disruptor.event;
 
 import com.hyr.disruptor.Main;
-import com.hyr.disruptor.Constant;
+import com.hyr.Constant;
 import com.hyr.disruptor.pb.PbTransfer;
 import com.lmax.disruptor.WorkHandler;
 import org.slf4j.Logger;
@@ -69,7 +69,7 @@ public class MyEventHandler implements WorkHandler<PvDataEvent> {
         }
 
         // 正常消费数据
-        log.info("consumer:{} handler event. sequence:{} ,data:{}", getConsumerName(), sequence, pvData.toBuilder());
+        // TODO log.info("consumer:{} handler event. sequence:{} ,data:{}", getConsumerName(), sequence, pvData.toBuilder());
     }
 
 }

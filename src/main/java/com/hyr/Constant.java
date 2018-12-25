@@ -1,4 +1,4 @@
-package com.hyr.disruptor;
+package com.hyr;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 

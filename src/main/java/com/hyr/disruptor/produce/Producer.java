@@ -1,6 +1,7 @@
 package com.hyr.disruptor.produce;
 
-import com.hyr.disruptor.Constant;
+import com.hyr.Constant;
+import com.hyr.Queue;
 import com.hyr.disruptor.event.MyEventTranslator;
 import com.hyr.disruptor.event.PvDataEvent;
 import com.hyr.disruptor.pb.PbTransfer;
@@ -21,6 +22,7 @@ public class Producer implements QuartzJob {
 
     private final static Logger log = LoggerFactory.getLogger(Producer.class);
 
+
     private String producerName;
 
     //生产者持有RingBuffer实例，可以直接向RingBuffer实例中的entry写入数据
@@ -37,18 +39,27 @@ public class Producer implements QuartzJob {
         long index = 0;
         String name = Thread.currentThread().getName();
         while (!Constant.IS_SHUTDOWN.get() && index < 5000000) {
-            String uuid = UUID.randomUUID().toString();
+            long startN = System.nanoTime();
+
+            // String uuid = UUID.randomUUID().toString(); // FIXME 该操作会导致生产时间过长 效率变低
+
             PbTransfer.PvData.Builder pvData = PbTransfer.PvData.newBuilder();
-            pvData.setPvid(uuid);
-            pvData.setProducer(producerName + "_" + name);
-            pvData.setIndex(index);
-            pvData.setMonitorTime(new Date().getTime());
-            MyEventTranslator myEventTranslator = new MyEventTranslator();
-            ringBuffer.publishEvent(myEventTranslator, pvData.build());
-            log.info("producer:{} produce data... pvid:{} index:{} ,monitorTime:{}", producerName, pvData.getPvid(), index, pvData.getMonitorTime());
+            ringBuffer.publishEvent( new MyEventTranslator(), pvData.build());
+
+//            long seq = ringBuffer.next(); // 当前生产下标
+//            PvDataEvent pvDataEvent = ringBuffer.get(seq);
+//            PbTransfer.PvData.Builder pvData = PbTransfer.PvData.newBuilder();
+//            pvDataEvent.setPvData(pvData.build());
+//            pvDataEvent.setSequence(seq);
+//            ringBuffer.publish(seq);
+
+            long endN = System.nanoTime();
+            //log.info("produce cost time:{}",endN-startN); // 测试生产耗时 如果生产耗时过长 会导致效率低
+
+            // TODO log.info("producer:{} produce data... pvid:{} index:{} ,monitorTime:{}", producerName, pvData.getPvid(), index, pvData.getMonitorTime());
             index++;
         }
         long end = System.currentTimeMillis();
-        log.info("producer:{} produce {} datas. start:{} end:{} cost time:{}", producerName, index, start, end, start - end);
+        log.info("producer:{} produce {} datas. start:{} end:{} cost time:{}", producerName, index, start, end, end - start);
     }
 }
