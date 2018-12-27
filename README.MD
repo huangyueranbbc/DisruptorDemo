@@ -1,4 +1,6 @@
-# Disruptor Java
+# Disruptor Java  
+  
+[![Travis](https://img.shields.io/badge/Disruptor-v3.4.2-green.svg)](https://github.com/huangyueranbbc/DisruptorDemo)  [![Travis](https://img.shields.io/badge/Disruptor-Github-orange.svg)](https://github.com/LMAX-Exchange/disruptor)  [![Travis](https://img.shields.io/badge/Disruptor-LMAX-blue.svg)](http://lmax-exchange.github.io/disruptor/)    
 
 Study Disruptor Demo
 
